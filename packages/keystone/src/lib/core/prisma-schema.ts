@@ -60,7 +60,7 @@ function assertNever(arg: never): never {
 
 function printField(
   fieldPath: string,
-  field: Exclude<ResolvedDBField, { kind: 'none' }>,
+  field: Exclude<ResolvedDBField, { kind: 'none'; }>,
   datasourceName: string,
   lists: ListsWithResolvedRelations
 ): string {
@@ -72,9 +72,8 @@ function printField(
       : '';
     const map = field.map ? ` @map(${JSON.stringify(field.map)})` : '';
     const updatedAt = field.updatedAt ? ' @updatedAt' : '';
-    return `${fieldPath} ${field.scalar}${
-      modifiers[field.mode]
-    }${updatedAt}${nativeType}${defaultValue}${index}${map}`;
+    return `${fieldPath} ${field.scalar}${modifiers[field.mode]
+      }${updatedAt}${nativeType}${defaultValue}${index}${map}`;
   }
   if (field.kind === 'enum') {
     const index = printIndex(fieldPath, field.index);
@@ -121,14 +120,14 @@ function printField(
 }
 
 function collectEnums(lists: ListsWithResolvedRelations) {
-  const enums: Record<string, { values: readonly string[]; firstDefinedByRef: string }> = {};
+  const enums: Record<string, { values: readonly string[]; firstDefinedByRef: string; }> = {};
   for (const [listKey, { resolvedDbFields }] of Object.entries(lists)) {
     for (const [fieldPath, field] of Object.entries(resolvedDbFields)) {
       const fields =
         field.kind === 'multi'
           ? Object.entries(field.fields).map(
-              ([key, field]) => [field, `${listKey}.${fieldPath} (sub field ${key})`] as const
-            )
+            ([key, field]) => [field, `${listKey}.${fieldPath} (sub field ${key})`] as const
+          )
           : [[field, `${listKey}.${fieldPath}`] as const];
 
       for (const [field, ref] of fields) {
@@ -144,13 +143,13 @@ function collectEnums(lists: ListsWithResolvedRelations) {
         if (!areArraysEqual(alreadyExistingEnum.values, field.values)) {
           throw new Error(
             `The fields ${alreadyExistingEnum.firstDefinedByRef} and ${ref} both specify Prisma schema enums` +
-              `with the name ${field.name} but they have different values:\n` +
-              `enum from ${alreadyExistingEnum.firstDefinedByRef}:\n${JSON.stringify(
-                alreadyExistingEnum.values,
-                null,
-                2
-              )}\n` +
-              `enum from ${ref}:\n${JSON.stringify(field.values, null, 2)}`
+            `with the name ${field.name} but they have different values:\n` +
+            `enum from ${alreadyExistingEnum.firstDefinedByRef}:\n${JSON.stringify(
+              alreadyExistingEnum.values,
+              null,
+              2
+            )}\n` +
+            `enum from ${ref}:\n${JSON.stringify(field.values, null, 2)}`
           );
         }
       }
@@ -178,8 +177,7 @@ function assertDbFieldIsValidForIdField(
   }
   if (field.mode !== 'required') {
     throw new Error(
-      `id fields must be a singular required field but the id field for the ${listKey} list is ${
-        field.mode === 'many' ? 'a many' : 'an optional'
+      `id fields must be a singular required field but the id field for the ${listKey} list is ${field.mode === 'many' ? 'a many' : 'an optional'
       } field`
     );
   }
@@ -215,7 +213,7 @@ datasource ${provider} {
 
 generator client {
   provider = "prisma-client-js"
-  output = "node_modules/.prisma/client"${prismaFlags}
+  output = "./node_modules/.prisma/client"${prismaFlags}
   engineType = "binary"
 }
 \n`;
