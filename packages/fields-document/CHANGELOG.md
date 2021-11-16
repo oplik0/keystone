@@ -1,5 +1,14 @@
 # @keystone-next/fields-document
 
+## 13.0.1
+
+### Patch Changes
+
+- [#6944](https://github.com/keystonejs/keystone/pull/6944) [`2be0e18a1`](https://github.com/keystonejs/keystone/commit/2be0e18a142c85072df1f07af11dae49e4eb8324) Thanks [@mitchellhamilton](https://github.com/mitchellhamilton)! - Fixed clear button in inline relationships
+
+- Updated dependencies [[`76ec35c97`](https://github.com/keystonejs/keystone/commit/76ec35c97a72dcb023e1b0da5b47e876896b6a03), [`0a7b75838`](https://github.com/keystonejs/keystone/commit/0a7b7583887e3811c23b0b74f4f97633fd484e08)]:
+  - @keystone-next/keystone@28.0.1
+
 ## 13.0.0
 
 ### Minor Changes

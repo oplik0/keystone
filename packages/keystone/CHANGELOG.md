@@ -1,5 +1,13 @@
 # @keystone-next/keystone
 
+## 28.0.1
+
+### Patch Changes
+
+- [#6949](https://github.com/keystonejs/keystone/pull/6949) [`76ec35c97`](https://github.com/keystonejs/keystone/commit/76ec35c97a72dcb023e1b0da5b47e876896b6a03) Thanks [@bladey](https://github.com/bladey)! - Fixed React key error in `relationship` field with `ui.displayMode: 'cards'`
+
+* [#6932](https://github.com/keystonejs/keystone/pull/6932) [`0a7b75838`](https://github.com/keystonejs/keystone/commit/0a7b7583887e3811c23b0b74f4f97633fd484e08) Thanks [@mitchellhamilton](https://github.com/mitchellhamilton)! - Field-level hooks and field-level create and update access control functions are now awaited in parallel. Note this means all field-level hooks and access control are now awaited in parallel because field-level read access control was already awaited in parallel.
+
 ## 28.0.0
 
 ### Major Changes

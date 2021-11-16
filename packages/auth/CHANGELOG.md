@@ -1,5 +1,14 @@
 # @keystone-next/auth
 
+## 36.0.1
+
+### Patch Changes
+
+- [#6934](https://github.com/keystonejs/keystone/pull/6934) [`528cc5e6b`](https://github.com/keystonejs/keystone/commit/528cc5e6b8196a38bc9cbc76e0146908b8d1246a) Thanks [@mitchellhamilton](https://github.com/mitchellhamilton)! - Fixed the init/sign in page showing for a short amount of time after submitting on the init/sign in page and seeing a loading spinner.
+
+- Updated dependencies [[`76ec35c97`](https://github.com/keystonejs/keystone/commit/76ec35c97a72dcb023e1b0da5b47e876896b6a03), [`0a7b75838`](https://github.com/keystonejs/keystone/commit/0a7b7583887e3811c23b0b74f4f97633fd484e08)]:
+  - @keystone-next/keystone@28.0.1
+
 ## 36.0.0
 
 ### Patch Changes
